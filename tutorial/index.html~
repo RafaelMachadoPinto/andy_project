@@ -1,0 +1,14 @@
+<html>
+
+<form action="/games/game2/spacebar" method="POST">
+	<input type="text" value="andy12334" name="PlayerID" />
+	<input type="text" value="23rf-h3f98-y32hf-huf3ho" name="SessionID" />
+        <input type="text" value="23rf-h3f98-y32hf-huf3ho" name="CurrencyCode" />
+        <input type="text" value="23rf-h3f98-y32hf-huf3ho" name="CountryCode" />
+        <input type="text" value="23rf-h3f98-y32hf-huf3ho" name="LanguageCode" />
+        <input type="text" value="23rf-h3f98-y32hf-huf3ho" name="GameID" />
+        <input type="text" value="23rf-h3f98-y32hf-huf3ho" name="x_" />
+	<input type="submit" />
+</form>
+
+</html>
