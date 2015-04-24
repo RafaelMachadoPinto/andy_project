@@ -1,0 +1,30 @@
+# Wrapper Class
+
+from wsgiref.simple_server import make_server
+from pyramid.config import Configurator
+from pyramid.response import Response
+from pyramid.static import static_view
+
+class WrapperResponse(object):
+  
+  #initialize the class
+  def __init__(self):
+    print "ui, tas a comecar vem!"
+    self.test = "test"
+    #self._resp = Response()
+
+  #mapPost
+  def mapPost(self, key, value):
+    return 0
+
+  #createResponse
+  def createResponse(self, request):
+
+
+   #load index.html as string
+
+   # build geco params
+   gecoParams = "gecoParams = {"
+
+   #return response
+   return self._resp

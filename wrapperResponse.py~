@@ -1,0 +1,24 @@
+# Wrapper Class
+class WrapperResponse_(object):
+  
+  #initialize the class
+  def __init__(self):
+    print "ui, tas a comecar vem!"
+    self.test = "test"
+
+  #mapPost
+  def mapPost(self, key, value):
+    return 0
+
+  #createResponse
+  def createResponse(self, request):
+
+   _resp = Response()
+
+   #load index.html as string
+
+   # build geco params
+   gecoParams = "gecoParams = {"
+
+   #return response
+   return _resp
