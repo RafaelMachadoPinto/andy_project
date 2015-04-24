@@ -1,0 +1,49 @@
+from pyramid.response import Response
+from pyramid.view import view_config
+
+from requestTranslator import RequestTranslator
+
+@view_config(route_name='spacebarRoute')
+def spacebarRequestTranslatorView(request):
+   
+    post_dic = request.POST
+    #print "post dic playerID = %s" %post_dic['PlayerID']
+    
+    #client_name = request.matchdict['client_name']
+    game_name = request.matchdict['game_name']
+    
+    
+    responder = RequestTranslator() 
+
+    responder.mapPost["userID"] =  post_dic['PlayerID']
+    responder.mapPost["token"] =  post_dic['SessionID']
+    responder.mapPost["currency"] =  post_dic['CurrencyCode']
+    responder.mapPost["country"] =  post_dic['CountryCode']
+    responder.mapPost["language"] =  post_dic['LanguageCode']
+    responder.mapPost["gameName"] =  post_dic['GameID']
+        
+    return responder.createResponse(request, game_name)
+
+@view_config(route_name='openbetRoute')
+def openbetRequestTranslatorView(request):
+    return Response()
+
+@view_config(route_name='nyxRoute')
+def nyxRequestTranslatorView(request):
+    post_dic = request.POST
+    #print "post dic playerID = %s" %post_dic['PlayerID']
+    
+    #client_name = request.matchdict['client_name']
+    game_name = request.matchdict['game_name']
+    
+    
+    responder = RequestTranslator() 
+
+    responder.mapPost["userID"] =  post_dic['PlayerID']
+    responder.mapPost["token"] =  post_dic['SessionID']
+    responder.mapPost["currency"] =  post_dic['CurrencyCode']
+    responder.mapPost["country"] =  post_dic['CountryCode']
+    responder.mapPost["language"] =  post_dic['LanguageCode']
+    responder.mapPost["gameName"] =  post_dic['GameID']
+        
+    return responder.createResponse(request, game_name)

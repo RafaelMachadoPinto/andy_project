@@ -1,0 +1,47 @@
+# Wrapper Class
+
+from pyramid.response import Response
+
+
+class RequestTranslator(object):
+  
+  #initialize the class
+  def __init__(self):
+    print "initialize class"
+    
+    self.mapPost = {}
+
+  #createResponse
+  def createResponse(self, request, game_name):
+
+    resp = Response()
+
+    i = 0
+    js = 'gecoParams = { '
+    for key in self.mapPost:
+      i +=1
+      js += key+':"'+self.mapPost[key]
+      if i != len(self.mapPost):
+        js += '", ' 
+      else:
+        js += '" '     
+
+    js +='}'
+    
+    #load index.html as string
+    path = 'games/'+game_name+'/index.html'
+    file = open(path,'r')
+    str = ""
+
+    for line in file:
+      str += line
+
+    str2 = "<!--GECO_SCRIPT_START-->"
+    index = str.find(str2) + len(str2)
+    test = str[:index] + js + str[index:]
+
+    print test
+    resp.text = test
+
+    #return response
+    return self.resp

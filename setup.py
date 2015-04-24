@@ -4,7 +4,7 @@ requires = [
     'pyramid',
 ]
 
-setup(name='tutorial',
+setup(name='src',
       install_requires=requires,
       entry_points="""\
       [paste.app_factory]
