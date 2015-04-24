@@ -26,18 +26,14 @@ class RequestTranslator(object):
     
     #load index.html as string
     path = 'games/'+game_name+'/index.html'
-    file = open(path,'r')
-    str = ""
 
-    for line in file:
-      str += line
+    with open(path, "r") as file:
+      str = file.read()
 
     search_str = "<!--GECO_SCRIPT_START-->"
     replace_str = search_str + "\n<script>\n"+ js + "\n</script>"
 
     final_str = str.replace(search_str, replace_str)
-
-
 
     print final_str
     resp.text = final_str
