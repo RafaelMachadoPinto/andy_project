@@ -1,7 +1,6 @@
 from pyramid.response import Response
 import xss
 
-
 class RequestTranslator(object):
 
   def __init__(self):
@@ -12,18 +11,10 @@ class RequestTranslator(object):
     resp = Response()
     x = xss.XssCleaner()
 
-    i = 0
     js = 'gecoParams = { '
-    for key in self.map_post:
-      i +=1
-      js += key+':"'+x.strip(self.map_post[key])
-      if i != len(self.map_post):
-        js += '", ' 
-      else:
-        js += '" '     
+    js += ', '.join(['{}:"{}"'.format(key,x.strip(value)) for key, value in self.map_post.iteritems()])
+    js +=' };'
 
-    js +='};'
-    
     #load index.html as string
     path = 'games/'+game_name+'/index.html'
 
@@ -36,7 +27,7 @@ class RequestTranslator(object):
     final_str = str.replace(search_str, replace_str)
 
     print final_str
-    resp.text = final_str
+    resp.body = final_str
 
     #return response
     return resp
